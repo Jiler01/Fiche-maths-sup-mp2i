@@ -1,35 +1,30 @@
-name: Build Typst document
-on: [push, workflow_dispatch]
-
+name: Compile, Upload and Release Typst Documents
+on:
+  workflow_dispatch:
+  push:
+    tags:
+    - '**'
 permissions:
   contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Typst
-        uses: lvignoli/typst-action@main
-        with:
-          source_file: main.typ
-
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: *.pdf
-
-      - name: Get current date
-        id: date
-        run: echo "DATE=$(date +%Y-%m-%d-%H:%M)" >> $GITHUB_ENV
-
-      - name: Release
-        if: ${{ github.ref_type == 'tag' }}
-        uses: softprops/action-gh-release@v1
-        with:
-          name: "${{ github.ref_name }} — ${{ env.DATE }}"
-          files: "*.pdf"
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Compile Typst Files
+      uses: ammar-ahmed22/compile-typst-action@v1
+      with:
+        source_paths: 'main.typ'
+        output_paths: 'main.pdf'
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: PDF
+        path: '**/*.pdf'
+    - name: Release on tag
+      uses: softprops/action-gh-release@v1
+      if: github.ref_type = 'tag'
+      with:
+        name: "${{ github.ref_name }}"
+        files: main.pdf
