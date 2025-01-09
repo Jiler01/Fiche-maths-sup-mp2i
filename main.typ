@@ -429,3 +429,301 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
   De plus, ${f^(<-)({y}) bar y in F}$ est un recouvrement disjoint de $E$, et ${f^(<-)({y}) bar y in "Im"(F)}$ est une partition de $E$. \
   De même, si $(F_i)_(i in II)$ est une partition de $"Im"(F)$, alors ${f^(<-)(F_i) bar i in II}$ est une partition de $E$.
 ]
+#pagebreak(weak: true)
+= Calcul matriciel
+#proposition(title: "Produit matriciel")[
+  Soient $A in italic(M)_(n,p)(KK)$ et $B in italic(M)_(p,q)(KK)$. 
+  On note $ A B = (sum^p_(k=1)a_(i,k)b_(k,j))_(i,j) in italic(M)_(n,q) $
+  Ce produit est associatif et bilinéaire. \
+  Il admet pour neutre (resp. élément absorbant) la matrice identitée (resp. la matrice nulle) de dimensions adaptée.
+]
+
+#proposition(title: "Matrice carée d'ordre 2")[
+  En prenant $A = mat(a, b ; c, d)$
+  - On note $det A = a d - b c$.
+  - Ssi $det A != 0$, $ A^(-1) = 1/(det A) mat(d, -b; -c, a) $
+]
+
+#proposition(title: "Matrice élémentaire")[
+  On note $ E_(i,j) = mat(
+                    0,      dots,   dots,   0       ; 
+                    dots.v,     ,   1   ,   dots.v  ;
+                    dots.v,     ,       ,   dots.v ;
+                    0,      dots,   dots,   0 
+                    ) $
+  Avec le $1$ sur la $i$-ème ligne, $j$-ème colonne. \
+  On notera que:
+  - $E_(i,j) E_(k,l) = delta_(j,k)E_(i,l) = cases(E_(i,j) "si" j=k, 0 "    sinon")$
+  - $M E_(i,j)$ est la matrice nulle sauf en sa $j$-ème colonne qui vaut la $i$-ème de $M$.
+  - $E_(i,j) M$ est la matrice nulle sauf en sa $i$-ème ligne qui vaut la $j$-ème de $M$.
+]
+
+#proposition(title: "Matrices-opérations")[
+  - $epsilon_(i,j) = I_n - E_(i,i) - E_(j,j) + E_(i,j) + E_(j,i)$
+  - $D_i (lambda) = I_n + (lambda - 1)E_(i,i)$
+  - $T_(i, j) (lambda) = I_n + lambda E_(i,j)$
+
+  Exemples de taille $4$:
+  $ epsilon_(2,3) = mat(1,0,0,0; 0,0,1,0; 0,1,0,0; 0,0,0,1); D_2 (lambda) = mat(1,0,0,0; 0,lambda,0,0; 0,0,1,0; 0,0,0,1); T_(3,2) (lambda) = mat(1,0,0,0; 0,1,0,0; 0,lambda,1,0;0,0,0,1) $
+]
+
+#théorème(title: "Opération-matrices")[ \
+  Opérations sur les lignes :
+  - $L_i <-> L_j$ equiv. $A times epsilon_(i,j)$. 
+  - $L_i <- lambda L_i$ equiv. $A times D_i (lambda)$.
+  - $L_i <- L_i + lambda L_j$ equiv. $A times T_(i,j) (lambda)$.
+  Opération sur les colonnes :
+  - $C_i <-> C_j$ equiv. $epsilon_(i,j) times A$.
+  - $C_i <- lambda C_i$ equiv. $D_i (lambda) times A$.
+  - $C_i <- C_i + lambda C_j$ equiv. $T_(j,i) (lambda) times A$. (⚠️ au sens des coefs !!)
+]
+
+#proposition[
+  - $(A^(-1))^tack.b = (A^tack.b)^(-1)$
+  - $A$ est symétrique si $A = A^tack.b$
+  - $A$ est antisymétrique $A = -A^tack.b$ (Note: ses coefs. diag. sont nuls !)
+]
+
+#théorème[
+  Une matrice triangulaire est inversible ssi ses coefs. diag. sont non nuls.
+]
+#pagebreak(weak: true)
+= Relations d'ordre et d'équivalence
+
+#proposition(title: "Relation d'équivalence")[
+  Relation binaire reflexive, transitive, symétrique. \
+  Soit $R$ une telle, $dash(x) = {y in E bar x R y}$ est la classe d'équivalence de $x$.
+]
+
+#proposition(title: "Relation d'ordre")[
+  Relation binaire reflexive, transitive, antisymétrique.
+]
+
+#proposition(title: "Borne inf/sup")[
+  La borne inf (resp. sup) est le plus grand de minorant (resp. le plus peteit des majorants). Si inclus, il est alors aussi le min (resp. max).
+]
+
+== Sur $ZZ$
+#théorème[
+  Toute partie non vide minoreé (resp. majorée) de $ZZ$ possède un plus petit (resp. plus grand) élément.
+]
+
+== Sur $RR$
+#proposition[On pose $dash(RR) = RR union {- infinity; +infinity}$.]
+
+#proposition(title: "Caractérisation")[
+  Soit $A$ une partie non vide majorée de $RR$. 
+  - $a = sup A$ ssi $forall x in A, x<=a$ et $ forall epsilon > 0, exists x  in A sect ]a - epsilon, a].$
+  - $a = inf A$ ssi $forall x in A, x>=a$ et $ forall epsilon > 0, exists x  in A sect [a, a + epsilon[.$
+]
+
+== Densité
+
+#théorème(title: "Approximations décimales")[
+  $ frac(floor 10^n a floor.r,10^n) <= a <= frac(floor 10^n a floor.r +1, 10^n) $
+  Ces deux suites convergent vers $a$. Ainsi, tout réel est la limite d'une suite de rationels.
+]
+
+#théorème[
+  $I$ est un intervalle de $RR$ ssi $forall u,v in I, forall t in RR, u<=t<=v => t in I$.
+]
+#pagebreak(weak: true)
+= Entiers relatifs et arithmétique de $ZZ$
+
+#proposition(title: "Relation de divisibilitée")[
+  - $a bar b and b bar a => abs(a) = abs(b)$
+  - $x bar a and x bar b => forall lambda, mu in ZZ, x bar lambda a + mu b$
+  - $a bar b and c bar d => a c bar b d$
+  - $forall c in ZZ^*, a bar b <=> a c bar b c$
+]
+
+#proposition(title: "Relation de congruance")[
+  $a equiv b [n] <=> n bar a-b$
+  - $a equiv b [n] and c equiv d [n] => a+c equiv c+d [n] and a c equiv b c [n]$
+]
+
+#théorème(title: "Théorème de Bézout")[
+  Soient $(a,b) in ZZ^2 \\ {(0,0)}$ \
+  Il existe $u,v in ZZ$ tq. $a u+b v = a and b$. $(u,v)$ est alors un couple de Bézout de $a$ et $b$.
+
+  On notera que, $forall a,b,c in ZZ, c!=0$ :
+  - $a ZZ + b ZZ = (a and b) ZZ$
+  - $(a c) and (b c) = abs(c)(a and b)$
+  
+]
+
+#théorème(title: "Lemme de Gauss")[
+  Soient $a,b,c in ZZ$, $a bar b c "et" a and b = 1 => a bar c$.  
+]
+
+#proposition[
+  $ a or b = frac(abs(a b), a and b) $
+]
+
+#proposition(title: "Valuation p-adique")[
+  Un réel peut s'écrire comme produit de puissances de nombres premiers.
+]
+
+#proposition(title: "Petit théorème de Fermat, 1640")[
+  Soit $p in PP$:
+  - $forall a in ZZ, p bar a^p - a$
+  - $forall a in ZZ \\ p ZZ, p bar a^(p-1) - 1$
+]
+#pagebreak(weak: true)
+= Suites réelles et complexes
+
+== Suites réelles
+
+#proposition(title: "Convergence d'une suite réelle")[
+  $ u --> l <=> forall epsilon in RR^*_+, exists n_0 in NN, forall n in NN, (n >= n_0 => abs(u_n - l) < epsilon) $
+]
+
+#théorème[Toute suite convergente est bornée]
+
+#proposition(title: "Divergence d'une suite réelle")[
+  $ u --> +infinity <=> forall A in RR, exists n_0 in NN, forall n in NN, (n >= n_0 => u_n >= A) $
+  $ u --> -infinity <=> forall A in RR, exists n_0 in NN, forall n in NN, (n >= n_0 => u_n <= A) $
+]
+
+#proposition(title: "Formes indéterminées")[
+  - $infinity - infinity$
+  - $frac(infinity, 0)$ et $frac(0,infinity)$
+]
+
+#proposition[
+  Suppsosons $u-->l_u and v--> l_v$.
+  - $min(u,v) --> min(l_u, l_v)$
+  - $max(u,v) --> max(l_u, l_v)$
+]
+
+== Limites et suites extraites
+
+#proposition[Une extractrice est une fonction *strictement croissante de $NN$ dans $NN$*]
+
+#théorème[Toute suite extraite d'une fonction qui tend vers $l in dash(RR)$, tend vers $l$.
+
+Donc si on peut en extraire qui ne convergent pas vers une même limite, la suite ne converge pas.
+
+#underline[Note:]\
+On peut extraire des suites telles que chaque terme se touve dans au moins l'une d'elle, afain de trouver la limite. Ainsi, $(u_(2n) -->_(n -> +infinity) l and u_(2n + 1) -->_(n -> +infinity)) l => u --> l$, par exemple.
+]
+
+#proposition[
+  $ u --> l and a<l<b => exists n_0 in NN, forall n in NN, (n>=n_0 => a<u_n<b) $
+]
+#pagebreak(weak: true)
+= Groupes, anneaux et corps
+
+== Loi de composition interne
+#proposition(title: "Loi de composition interne")[\
+  Soit $(E,*)$ un magma, donc $E$ un ensemble et $(*)$ une loi de composition interne, donc une application de $E times E -> E$, et $x, y, z in E$
+
+  - _Associativité :_ $(x*y)*z = x*(y*z)$
+  - _Comuntativité :_ $x*y = y*x$
+  - _Distributivité de $(°)$ par rapport à $(*)$ :_ $x°(y*z) = (x°y) * (x°z)$ (et de même à droite)
+  - _Neutralité :_ $e$ est neutre de $(*)$ ssi $e*x = x$ (et de même à droite). Si il existe, il est unique.
+  
+]
+
+#proposition(title: "Inverse")[
+  L'inverse de $x$ est $y$ tq. $x*y = e$. Il est unique.
+  
+  On notera que si $x$ est inversible, alors $x*y=x*z <=> y=z$
+  
+  De plus, $ (x*y)^(-1) = y^(-1) * x^(-1) $
+  
+]
+
+== Groupes
+
+#proposition(title: "Groupe")[
+  + Un magma
+  + Ayant un élément neutre
+  + Dont chaque élément est inversible.
+  Exemples: $(CC,+); (RR,+); (QQ,+); (ZZ,+); (CC\\{0},times); (RR\\{0},times); (QQ\\{0},times)$
+
+  Note: un groupe est _abélien_ ssi sa loi de composition interne est commutative.
+]
+
+#proposition(title: "Sous-groupe")[ $H$ est un sous groupe de $G$ ssi
+  + $H subset G$
+  + $e in H$
+  + $forall x,y in H, x*y in H$
+  + $forall x in H, x^(-1) in H$
+
+  *Caractérisation* $H subset G$, $H != emptyset$ et $ forall x,y in H, x^(-1)*y in H $
+
+  On notera que $H$ peut alors être un groupe si muni de $(*)$ induite sur $H$.
+]
+
+#proposition(title: "Morphisme de groupe")[
+  Avec $(G,*)$ et $(G', °)$ des groupes, $phi: G->G'$ est un morphisme de $G$ dans $G'$ ssi $ phi(x*y) = phi(x)°phi(y) $
+  - _Endomorphisme :_ de $G$ dans $G$
+  - _Isomorphisme :_ $phi$ une bijection
+  - _Automorphisme :_ Les deux précédents
+
+  On notera que :
+  - $phi(e) = e'$
+  - $phi(x^k) = phi(x)^k$
+  - La composée de deux morphismes en est un.
+  - La réciproque d'un isomorphisme en est un.
+  - L'image (resp. le tiré en arrière) d'un s\\groupe par un morphisme est un s\\groupe.
+]
+
+#proposition(title: "Noyeau et image")[
+  $ ker phi = {x in G bar phi(x) = e'} $
+  $ im phi = {phi(x) bar x in G} $
+  - $ker phi = {e} <=> phi$ injective
+  - $im phi = G' <=> phi$ surjective
+]
+
+== Anneaux
+
+#proposition(title: "Anneaux")[$(A,+,times)$ est un anneau ssi
+ + $(A,+)$ est un groupe abélien de neutre $0_A$
+ + $(A, times)$ un magma associatif de neutre $1_A$
+ + $(times)$ est distributif par rapport à $(+)$
+
+Alors, on notera que:
+ - $a times 0 = 0 times a = 0$
+ - $-(a times b) = (-a) times b = (-b) times a$
+
+De plus, si $a$ et $b$ commutent:
+$ (a+b)^n = sum_(k=0)^n binom(n,k) a^k b^(n-k) $
+$ a^n - b^n = (a-b) sum_(k=0)^(n-1) a^k b^(n-1-k) $
+
+_Intégrité :_ $forall a,b in A, a b = 0 => a=0 or b=0$
+
+Enfin, $(A^*, times)$ est un groupe. ($A^*$ étant l'ensemble des inversibles par $(times)$ de $A$)
+]
+
+#proposition(title: "Sous-anneau")[ $B$ est un sous anneau de $(A,+,times)$ ssi
+ - $B subset A$
+ - $B$ est s\\groupe de $(A,+)$
+ - $forall x,y in B, x y in B$
+ - $1_A in B$
+]
+
+#proposition(title: "Morphisme d'anneau")[
+  Soit $(A,+,times)$ et $(B,+,times)$ des anneaux, et $phi: A-> B$, $phi$ est un morphisme d'anneau ssi
+  + $phi(x+y) = phi(x) + phi(y)$
+  + $phi(x y) = phi(x)phi(y)$
+  + $phi(1_A) = 1_B$
+
+  On notera que l'image (resp. le tiré en arrière) d'un s\\anneau par un morphisme d'anneau est un s\\anneau.
+
+  
+]
+
+== Corps
+
+#proposition(title: "Corps")[
+  Un groupe est un anneau tq.
+  + il est commutatif
+  + il est non-nul ($E != {0}$)
+  + $forall x in E, x!=0, x^(-1) in E$
+
+  On notera que:
+  - Un corps est intègre.
+  - $KK$ un corps, $(KK\\{0} = KK^*, times)$ est un groupe.
+]
