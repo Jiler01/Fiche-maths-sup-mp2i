@@ -42,6 +42,7 @@
 )
 
 #let preuve = proofblock()
+#pagebreak()
 
 = Trigonométrie et nombres imaginaires
 == Trigonométrie
@@ -66,7 +67,7 @@
   + $sin(a)cos(b) = 1/2(sin(a+b)(sin(a-b)))$
 ]
 #remarque[
-  Les deux premières formules sont déduites des formules d'addition et des faits que \ 
+  Les deux premières formules sont déduites des formules d'addition et des faits que \
   $a=(a+b)/2 + (a-b)/2$ et $b=(a+b)/2 - (a-b)/2$. Les trois dernières par manipulation des formules d'addition.
 ]
 #remarque[
@@ -87,7 +88,7 @@
 == Nombres imaginaires
 #remarque[On ne reviendra pas ici sur toutes les définitions.]
 #proposition(title: "Formules d'Euler")[\
-  Soit $theta in RR$ : 
+  Soit $theta in RR$ :
   $ e^(i theta) = cos(theta) + i sin(theta) $
   En découlent:\
   - $e^(-i theta) = cos(theta) - i sin(theta)$
@@ -138,7 +139,7 @@
   - $arctan : RR -> ]-pi/2; pi/2[$
 ]
 #proposition(title: "Dérivées")[
-  
+
   - $arcsin'(x) = 1/sqrt(1-x^2)$
   - $arccos'(x) = (-1)/sqrt(1-x^2)$
   - $arctan'(x) = 1/(1+x^2)$
@@ -259,7 +260,7 @@ Soit $p$ et $q$ des propositions logiques, et $P$ un prédicat.
   - Généralement, on ramène à l'origine, puis effectue la transformation, et on renvois au centre.
   - La transformation $z -> a z +b "avec" (a,z) in CC^2$, est composée de centre $b/(1-a)$, de:
     - Une homotétie de rapport $abs(a)$,
-    - Une rotation d'angle $arg(a)$.   
+    - Une rotation d'angle $arg(a)$.
 ]
 #pagebreak(weak: true)
 = Equations déférentielles linéaires
@@ -293,7 +294,7 @@ $KK$ vaut $RR$ ou $CC$, en fonction du contexte.
 #théorème(title: "Strcuture des solutions")[\
   Soient:
   - $n in NN$
-  - $(E)$ une équa-diff linéaire d'ordre $n$ et $S_E$ son ensemble de solutions. 
+  - $(E)$ une équa-diff linéaire d'ordre $n$ et $S_E$ son ensemble de solutions.
   - $(H)$ l'équation homogène de $(E)$ (membre de droite nul), et $S_H$ son ensemble de solutions.
   Alors:
   - $S_e subset cal(C)^n$
@@ -305,13 +306,13 @@ $KK$ vaut $RR$ ou $CC$, en fonction du contexte.
   Soient:
   - $n in NN$
   - ${a_i | i in [|0,n-1|]} union {b_1, b_2}$ un ensemble d'appliaction continues.
-  - $a_n : x -> 1$ 
+  - $a_n : x -> 1$
   - $lambda_1, lambda_2$ des membres de $KK$
   - $(E_1) : sum_(i=0)^n a_i y^((i)) = b_1$
   - $(E_2) : sum_(i=0)^n a_i y^((i)) = b_2$
   - $(E) : sum_(i=0)^n a_i y^((i)) = lambda_1 b_1 + lambda_2 b_2$
   Alors $y_1 in S_E_1 and y_2 in S_E_2 => lambda_1 y_1 + lambda_2 y_2 in S_E$.
-] 
+]
 #théorème(title: "Solutions d'un problème de Cauchy")[\
   Un problème de Cauchy d'ordre $n_0$ (strictement inférieur au degré de l'équation) impose des conditions initiales à chaque dérivée $n$-ième de la solution, pour $0<=n<=n_0$.\
   Pour tout choix de conditions initiales, un problème de Cauchy d'ordre $n$, pour une équation de même ordre, n'admet *qu'une solution*.
@@ -348,7 +349,7 @@ Soient $("EC"): a r^2 + b r + c = 0$. et $P_H : a X^2 + b X + c$\
 ]
 #proposition(title: "Solutions réelles de (H)")[
   - Dans les cas où les solutions de $("EC")$ sont toute deux réelles, on procède comme dans le cas où elles seraint complexes.
-  - Sinon, les deux solutions étant conjugées, de la forme $gamma plus.minus i omega$, avec $(gamma, omega) in RR^2$. 
+  - Sinon, les deux solutions étant conjugées, de la forme $gamma plus.minus i omega$, avec $(gamma, omega) in RR^2$.
   Alors $ S_H = {t |-> alpha cos(omega t) e^( gamma t) + beta sin(omega t) e^(gamma t) | (alpha, beta) in RR^2} $
 
   $ S_H = {A cos(omega t + phi )e^(gamma t) | A in RR_+, phi in ]-pi; pi[} $
@@ -370,19 +371,19 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
   - $cal(P)(E)$ a $2^n$ éléments
 ]
 #proposition(title: "Distributivité")[
-  $ (union.big_(i in II) A_i) sect E = union.big_(i in II) (A_i sect E) $
-  $ (sect.big_(i in II) A_i) union E = sect.big_(i in II) (A_i union E) $
+  $ (union.big_(i in II) A_i) inter E = union.big_(i in II) (A_i inter E) $
+  $ (inter.big_(i in II) A_i) union E = inter.big_(i in II) (A_i union E) $
 ]
 #proposition(title: "Relations de De Morgan")[\
   On suppose ${(A_i)_(i in II)} subset cal(P)(E)$.
-  $ (sect.big_(i in II) A_i)^C = union.big_(i in II) A_i^C $
-  $ (union.big_(i in II) A_i)^C = sect.big_(i in II) A_i^C $
+  $ (inter.big_(i in II) A_i)^C = union.big_(i in II) A_i^C $
+  $ (union.big_(i in II) A_i)^C = inter.big_(i in II) A_i^C $
   Où $A_i^C = E \\ A_i$. (On le note aussi $C_E A_i$ ou $dash(A_i)$ si il n'y a aucune confusion.)
 ]
 #proposition(title: "Recouvrement disjoint et partition")[\
   On suppose ${(A_i)_(i in II)} subset cal(P)(E)$.\
   Alors, $A$ est un  _recouvrement disjoint_ de $E$ si:
-  - $forall (i,j) in II^2, i!=j => A_i sect A_j = emptyset$ (Les éléments de $A$ sont deux à deux disjoints);
+  - $forall (i,j) in II^2, i!=j => A_i inter A_j = emptyset$ (Les éléments de $A$ sont deux à deux disjoints);
   - $E = union.big_(i in II) A_i$ ($A$ est un recouvrement de $E$).
   De plus, si $forall i in II, A_i != emptyset$, $A$ est une partition  de $E$.
 ]
@@ -392,8 +393,8 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
   On note $cal(F)(E,F) = F^E$ l'ensemble des applications de $E$ dans $F$.
 ]
 #proposition(title: "Fonction indicatrice de A")[
-  Soit $A$ une partie de $E$.\ 
-  On a la fonction indicatrice $1_A$ telle que : 
+  Soit $A$ une partie de $E$.\
+  On a la fonction indicatrice $1_A$ telle que :
   $ 1_A: x |-> cases(1 "si" x in A, 0 "si" x in dash(A)) $
 ]
 #proposition(title: "Restriction est prolongement")[\
@@ -432,7 +433,7 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 #pagebreak(weak: true)
 = Calcul matriciel
 #proposition(title: "Produit matriciel")[
-  Soient $A in italic(M)_(n,p)(KK)$ et $B in italic(M)_(p,q)(KK)$. 
+  Soient $A in italic(M)_(n,p)(KK)$ et $B in italic(M)_(p,q)(KK)$.
   On note $ A B = (sum^p_(k=1)a_(i,k)b_(k,j))_(i,j) in italic(M)_(n,q) $
   Ce produit est associatif et bilinéaire. \
   Il admet pour neutre (resp. élément absorbant) la matrice identitée (resp. la matrice nulle) de dimensions adaptée.
@@ -446,10 +447,10 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 
 #proposition(title: "Matrice élémentaire")[
   On note $ E_(i,j) = mat(
-                    0,      dots,   dots,   0       ; 
+                    0,      dots,   dots,   0       ;
                     dots.v,     ,   1   ,   dots.v  ;
                     dots.v,     ,       ,   dots.v ;
-                    0,      dots,   dots,   0 
+                    0,      dots,   dots,   0
                     ) $
   Avec le $1$ sur la $i$-ème ligne, $j$-ème colonne. \
   On notera que:
@@ -469,7 +470,7 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 
 #théorème(title: "Opération-matrices")[ \
   Opérations sur les lignes :
-  - $L_i <-> L_j$ equiv. $A times epsilon_(i,j)$. 
+  - $L_i <-> L_j$ equiv. $A times epsilon_(i,j)$.
   - $L_i <- lambda L_i$ equiv. $A times D_i (lambda)$.
   - $L_i <- L_i + lambda L_j$ equiv. $A times T_(i,j) (lambda)$.
   Opération sur les colonnes :
@@ -512,9 +513,9 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 #proposition[On pose $dash(RR) = RR union {- infinity; +infinity}$.]
 
 #proposition(title: "Caractérisation")[
-  Soit $A$ une partie non vide majorée de $RR$. 
-  - $a = sup A$ ssi $forall x in A, x<=a$ et $ forall epsilon > 0, exists x  in A sect ]a - epsilon, a].$
-  - $a = inf A$ ssi $forall x in A, x>=a$ et $ forall epsilon > 0, exists x  in A sect [a, a + epsilon[.$
+  Soit $A$ une partie non vide majorée de $RR$.
+  - $a = sup A$ ssi $forall x in A, x<=a$ et $ forall epsilon > 0, exists x  in A inter ]a - epsilon, a].$
+  - $a = inf A$ ssi $forall x in A, x>=a$ et $ forall epsilon > 0, exists x  in A inter [a, a + epsilon[.$
 ]
 
 == Densité
@@ -549,11 +550,11 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
   On notera que, $forall a,b,c in ZZ, c!=0$ :
   - $a ZZ + b ZZ = (a and b) ZZ$
   - $(a c) and (b c) = abs(c)(a and b)$
-  
+
 ]
 
 #théorème(title: "Lemme de Gauss")[
-  Soient $a,b,c in ZZ$, $a bar b c "et" a and b = 1 => a bar c$.  
+  Soient $a,b,c in ZZ$, $a bar b c "et" a and b = 1 => a bar c$.
 ]
 
 #proposition[
@@ -605,12 +606,41 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 Donc si on peut en extraire qui ne convergent pas vers une même limite, la suite ne converge pas.
 
 #underline[Note:]\
-On peut extraire des suites telles que chaque terme se touve dans au moins l'une d'elle, afain de trouver la limite. Ainsi, $(u_(2n) -->_(n -> +infinity) l and u_(2n + 1) -->_(n -> +infinity)) l => u --> l$, par exemple.
+On peut extraire des suites telles que chaque terme se touve dans au moins l'une d'elle, afain de trouver la limite. Ainsi, $(u_(2n) -->_(n -> +infinity) l and u_(2n + 1) -->_(n -> +infinity) l )=> u --> l$, par exemple.
 ]
 
 #proposition[
   $ u --> l and a<l<b => exists n_0 in NN, forall n in NN, (n>=n_0 => a<u_n<b) $
 ]
+
+#théorème(title: "Théorème du point fixe")[\
+  $forall n in NN, u_(n+1) = f(u_n)$ avec $f$ continue, et $u --> l in RR => f(l) = l$
+]
+
+#proposition[\
+  Une suite croissante (resp. décroissante) et majorée (resp. minorée) converge.
+]
+
+== Equations de suites
+#proposition(title: "Suites arithmético-géométriques")[
+  $ forall n in NN, u_(n+1) = a times u_n + b $
+  Alors on peut écrire $(u_(n+1) - a u_n)_(n in NN) = b$ dont on peut trouver une solution constant $alpha$ tq. : $ alpha = a alpha + b $
+  Ensuite $u$ est solution $=>$ $u_(n+1)-a u_n = alpha + a alpha$ donc $u_(n+1) - alpha = a(u_n - alpha)$ donc $u_(n) - alpha = a^n (u_0 - alpha)$ et donc: $ u_n = a^n (u_0 + alpha) $
+
+]
+#proposition(title: " Suites récurrentes linéaires doubles")[
+  $ (E): forall n in NN u_(n+1) + a u_(n+1) + b u_n = 0 $
+  On pose d'ailleurs $(C) : r^2 + a r + b = 0$.\
+  Alors on a que $(r^n)_(n in NN)$ verifie $(E)$ ssi $r$ vérifie $(C)$.
+
+  Les solutions dans $KK$ sont alors, pour $r_1,r_2$ solutions de $(C)$:\
+  - Si $r_1,r_2 in KK$, avec $lambda, mu in KK$:
+    - $lambda (r_1^n + mu r_2^n)_(n in NN)$
+    - $((lambda + n mu) r_1^n)_(n in NN)$ si $r_1=r_2$
+  - Sinon ($KK=RR$ et $r_1,r_2$ des solutions complexes conjuguées),\ avec $lambda, mu in RR$, et $r,theta in RR$ tq. $r_1=r e^(i theta)$ et $r_2=r e^(-i theta)$:
+    - $(r^n ( lambda cos(n theta)) + mu sin(n theta))_(n in NN)$
+]
+
 #pagebreak(weak: true)
 = Groupes, anneaux et corps
 
@@ -622,16 +652,16 @@ On peut extraire des suites telles que chaque terme se touve dans au moins l'une
   - _Comuntativité :_ $x*y = y*x$
   - _Distributivité de $(°)$ par rapport à $(*)$ :_ $x°(y*z) = (x°y) * (x°z)$ (et de même à droite)
   - _Neutralité :_ $e$ est neutre de $(*)$ ssi $e*x = x$ (et de même à droite). Si il existe, il est unique.
-  
+
 ]
 
 #proposition(title: "Inverse")[
   L'inverse de $x$ est $y$ tq. $x*y = e$. Il est unique.
-  
+
   On notera que si $x$ est inversible, alors $x*y=x*z <=> y=z$
-  
+
   De plus, $ (x*y)^(-1) = y^(-1) * x^(-1) $
-  
+
 ]
 
 == Groupes
@@ -712,7 +742,7 @@ Enfin, $(A^*, times)$ est un groupe. ($A^*$ étant l'ensemble des inversibles pa
 
   On notera que l'image (resp. le tiré en arrière) d'un s\\anneau par un morphisme d'anneau est un s\\anneau.
 
-  
+
 ]
 
 == Corps
@@ -726,4 +756,28 @@ Enfin, $(A^*, times)$ est un groupe. ($A^*$ étant l'ensemble des inversibles pa
   On notera que:
   - Un corps est intègre.
   - $KK$ un corps, $(KK\\{0} = KK^*, times)$ est un groupe.
+]#pagebreak(weak: true)
+=  Limite d’une fonction
+
+#proposition[Soient $E$ un ensemble et $I = (a,b)$ avec ( et ) valant [ ou ] \
+_Intérieur de $E$, $circle(E)$:_\ Ensemble des $x in E, exists delta>0, ]x-delta;x+delta[ subset E$. Pour $I$: $]a,b[$.
+
+_Adhérance de $E$, $dash(E)$:_\
+Ensemble des éléments de $dash(RR)$ limites de suites d'éléments de $E$. Pour $I$: $[a,b]$.
+
+_Frontière de $E$:_ $dash(E)\\circle(E)$.
 ]
+
+#proposition(title: "Définition des limites")[
+  Soit $f : I -> RR$
+  - $f-->_a l <=> forall epsilon > 0, exists alpha > 0, forall x in I, abs(x-a)<alpha => abs(f(x)-l)<epsilon$
+  - $f-->_a + infinity <=> forall A > 0, exists alpha > 0, forall x in I, abs(x-a)<alpha => f(x) >= A$
+  - $f-->_(+ infinity) l$ <=> $forall epsilon > 0, exists B > 0, forall x in I, x>=B => abs(f(x)-l)<epsilon$
+  - $f-->_(+ infinity) - infinity$ <=> $forall A < 0, exists B > 0, forall x in I, x>=B => f(x)<=A$
+
+    Déduire les autres cas.
+]
+
+#proposition[La limite est unique.]
+
+#théorème[$f-->_(a in dash(RR)) l in RR => f$ est bornée au voisinage de a.]
