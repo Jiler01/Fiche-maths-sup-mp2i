@@ -22,7 +22,7 @@ jobs:
           source_file: main.typ  # Restrict to main.typ
 
       - name: Upload PDF file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: PDF
           path: main.pdf  # Upload only main.pdf
