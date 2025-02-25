@@ -42,6 +42,19 @@
 )
 
 #let preuve = proofblock()
+
+#set page(header: [
+  Contenu sous Licence MIT
+  #h(1fr)
+  _github.com/Jiler01/Fiche-maths-sup-mp2i_
+])
+
+#text(20pt)[
+  Fiche de révision MP2I 2025\
+  _Complétude et correction non-assurée._
+]
+
+#outline(title: "Table des matières", depth: 2)
 #pagebreak()
 
 = Trigonométrie et nombres imaginaires
@@ -86,7 +99,6 @@
   De plus, on a $A = sqrt(a^2+b^2)$ et $phi$ tel que $cos(phi) = a/A$ et $sin(phi) = b/A$.
 ]
 == Nombres imaginaires
-#remarque[On ne reviendra pas ici sur toutes les définitions.]
 #proposition(title: "Formules d'Euler")[\
   Soit $theta in RR$ :
   $ e^(i theta) = cos(theta) + i sin(theta) $
@@ -120,7 +132,7 @@
 ]
 == Fonction réciproque
 #théorème[
-  Soit $I$ un interval de $RR$, et $f: I -> RR$ continue est strictement monotone.
+  Soit $I$ un intervalle de $RR$, et $f: I -> RR$ continue est strictement monotone.
   + $f^(-1)$ est de même monotonie stricte.
   + $f$ impaire $=>$ $f^(-1)$ impaire.
   + $f^(-1)$ est continue.
@@ -194,12 +206,12 @@
 #théorème(title: "Formule du binôme de Newton")[
   Soit $n in NN$, et $(a,b) in CC$ :
   $ (a+b)^n = sum_(k=0)^n binom(n,k) a^k b^(n-k) $
-]<th3.5>
-#théorème[
+]
+#théorème(title: "Formule de Bernoulli")[
   Soit $n in NN$, et $(a,b) in CC$ :
   $ a^n - b^n = (a-b) sum_(k=0)^(n-1) a^k b^(n-1-k) $
-]<th3.6>
-#théorème(title: "Sommation géométrique")[Corrolaire de @th3.6\
+]
+#théorème(title: "Sommation géométrique")[\
   Soit $n in NN$, et $z in CC$ :
   $ sum_(k=0)^n z^k = (z^(n+1) - 1)/(z-1) $
   _Note: _ Si $z=1$, alors la somme vaut $n+1$.
@@ -212,7 +224,7 @@
 ]
 #proposition(title: "Paramètrisation")[
   On peut décider d'éxprimer les valeurs de ceratines variables en fonction d'autres, et de définir ces dernières comme membres d'un ensemble.
-  _Exemple_: $(x,y,z) in {(3z+2,9z^2,z) | z in CC}$
+  _Exemple_: $(x,y,z) in {(3z+2, 9z^2, z) | z in CC}$
 ]
 #pagebreak(weak: true)
 = Un peu de logique
@@ -243,8 +255,8 @@ Soit $p$ et $q$ des propositions logiques, et $P$ un prédicat.
   Soit $f$ une fonction.
   - $sum cos compose f = sum "Re"(e^f(x)) = "Re"(sum e^f(x))$, et de même pour $sin$, avec Im. On peut alors espérer une somme géométrique.
   - Pour simplifier un mix produit-puissances de sinus et de conisus, on peut utiliser la méthode _Euler-Newton-Euler_:
-    + Expression en utilisant les formules d'Euler (@prop1.5).
-    + Développement en utilisant la formule du binôme de Newton (@th3.5)
+    + Expression en utilisant les formules d'Euler.
+    + Développement en utilisant la formule du binôme de Newton
     + Réassemblage à l'aide des les formules d'Euler.
 ]
 #théorème(title: "Exponentielle complexe")[\
@@ -275,7 +287,7 @@ $KK$ vaut $RR$ ou $CC$, en fonction du contexte.
   - $f in cal(C) <=> f$ est continue.
   - $f in cal(D)^n <=> f "est" n "fois dérivable"$.
   - $f in cal(C)^n <=> f in cal(D)^n and f^((n)) in cal(C)^n$.
-  - $f in cal(C)^infinity <=> f$ est infiniment dérivable.
+  - $f in cal(C)^oo <=> f$ est infiniment dérivable.
 ]
 #proposition(title: "Primitive de fonction de forme inverse d'une fonction quadratique.")[\
   Soit $f: x |-> 1/(a x^2+b x+c)$, avec $(a,b,c) in RR^3$.
@@ -510,7 +522,7 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 ]
 
 == Sur $RR$
-#proposition[On pose $dash(RR) = RR union {- infinity; +infinity}$.]
+#proposition[On pose $dash(RR) = RR union {- oo; +oo}$.]
 
 #proposition(title: "Caractérisation")[
   Soit $A$ une partie non vide majorée de $RR$.
@@ -582,13 +594,13 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 #théorème[Toute suite convergente est bornée]
 
 #proposition(title: "Divergence d'une suite réelle")[
-  $ u --> +infinity <=> forall A in RR, exists n_0 in NN, forall n in NN, (n >= n_0 => u_n >= A) $
-  $ u --> -infinity <=> forall A in RR, exists n_0 in NN, forall n in NN, (n >= n_0 => u_n <= A) $
+  $ u --> +oo <=> forall A in RR, exists n_0 in NN, forall n in NN, (n >= n_0 => u_n >= A) $
+  $ u --> -oo <=> forall A in RR, exists n_0 in NN, forall n in NN, (n >= n_0 => u_n <= A) $
 ]
 
 #proposition(title: "Formes indéterminées")[
-  - $infinity - infinity$
-  - $frac(infinity, 0)$ et $frac(0,infinity)$
+  - $oo - oo$
+  - $frac(oo, 0)$ et $frac(0,oo)$
 ]
 
 #proposition[
@@ -606,7 +618,7 @@ Soient $E$ un ensemble de $n in NN$ éléments, et $A = (A_i)_(i in II)$ une fam
 Donc si on peut en extraire qui ne convergent pas vers une même limite, la suite ne converge pas.
 
 #underline[Note:]\
-On peut extraire des suites telles que chaque terme se touve dans au moins l'une d'elle, afain de trouver la limite. Ainsi, $(u_(2n) -->_(n -> +infinity) l and u_(2n + 1) -->_(n -> +infinity) l )=> u --> l$, par exemple.
+On peut extraire des suites telles que chaque terme se touve dans au moins l'une d'elle, afain de trouver la limite. Ainsi, $(u_(2n) -->_(n -> +oo) l and u_(2n + 1) -->_(n -> +oo) l )=> u --> l$, par exemple.
 ]
 
 #proposition[
@@ -637,7 +649,7 @@ On peut extraire des suites telles que chaque terme se touve dans au moins l'une
   - Si $r_1,r_2 in KK$, avec $lambda, mu in KK$:
     - $lambda (r_1^n + mu r_2^n)_(n in NN)$
     - $((lambda + n mu) r_1^n)_(n in NN)$ si $r_1=r_2$
-  - Sinon ($KK=RR$ et $r_1,r_2$ des solutions complexes conjuguées),\ avec $lambda, mu in RR$, et $r,theta in RR$ tq. $r_1=r e^(i theta)$ et $r_2=r e^(-i theta)$:
+  - Sinon ($KK=RR$ et $r_1,r_2$ des solutions non réeles conjuguées),\ avec $lambda, mu in RR$, et $r,theta in RR$ tq. $r_1=r e^(i theta)$ et $r_2=r e^(-i theta)$:
     - $(r^n ( lambda cos(n theta)) + mu sin(n theta))_(n in NN)$
 ]
 
@@ -758,6 +770,7 @@ Enfin, $(A^*, times)$ est un groupe. ($A^*$ étant l'ensemble des inversibles pa
   - $KK$ un corps, $(KK\\{0} = KK^*, times)$ est un groupe.
 ]#pagebreak(weak: true)
 =  Limite d’une fonction
+== Définitions
 
 #proposition[Soient $E$ un ensemble et $I = (a,b)$ avec ( et ) valant [ ou ] \
 _Intérieur de $E$, $circle(E)$:_\ Ensemble des $x in E, exists delta>0, ]x-delta;x+delta[ subset E$. Pour $I$: $]a,b[$.
@@ -771,13 +784,500 @@ _Frontière de $E$:_ $dash(E)\\circle(E)$.
 #proposition(title: "Définition des limites")[
   Soit $f : I -> RR$
   - $f-->_a l <=> forall epsilon > 0, exists alpha > 0, forall x in I, abs(x-a)<alpha => abs(f(x)-l)<epsilon$
-  - $f-->_a + infinity <=> forall A > 0, exists alpha > 0, forall x in I, abs(x-a)<alpha => f(x) >= A$
-  - $f-->_(+ infinity) l$ <=> $forall epsilon > 0, exists B > 0, forall x in I, x>=B => abs(f(x)-l)<epsilon$
-  - $f-->_(+ infinity) - infinity$ <=> $forall A < 0, exists B > 0, forall x in I, x>=B => f(x)<=A$
+  - $f-->_a + oo <=> forall A > 0, exists alpha > 0, forall x in I, abs(x-a)<alpha => f(x) >= A$
+  - $f-->_(+ oo) l$ <=> $forall epsilon > 0, exists B > 0, forall x in I, x>=B => abs(f(x)-l)<epsilon$
+  - $f-->_(+ oo) - oo$ <=> $forall A < 0, exists B > 0, forall x in I, x>=B => f(x)<=A$
 
     Déduire les autres cas.
 ]
 
+== Considérations utiles
+
 #proposition[La limite est unique.]
 
 #théorème[$f-->_(a in dash(RR)) l in RR => f$ est bornée au voisinage de a.]
+
+#théorème(title: "Caractérisation séquentielle de la limite")[
+  $forall (u_n)_(n in NN) in I^NN$ tq. $u -->_(+ oo) a$:  $ f -->_a  l <=> f(u_n) -->_(n--> + oo) l $
+]
+
+#proposition(title: "Passage à la limite")[
+  Avec $a in dash(I)$, et $f -->_a l$:
+  - $m$ minore $f$ au voisinage de $a$ $=>$ $m<=a$
+  - $M$ majore $f$ au voisinage de $a$ $=>$ $a<=M$
+]
+
+#théorème(title: "Théorème de la limite monotone (partiel)")[\
+  Avec $f: I->R$ croissante, $(alpha,beta) = (inf I inter RR, sup I inter RR)$:
+  - en $alpha$: si $f$ est minorée alors elle y tend vers une limite finie, sinon vers $-oo$.
+  - en $beta$: si $f$ est majorée alors elle y tend vers une limite finie, sinon vers $+oo$.
+]
+
+#pagebreak(weak: true)
+= Continuité
+#proposition[$f: I->RR$ est continue ssi $forall a in I, f-->_a f(a)$]
+
+#proposition[\
+  Soit $lambda in RR$, $f,g : I-> RR$ continues en $a$, et $H: J->R$ tq. $g(I) in J$ et $h$ continue en $g(a)$, on a:
+  - $abs(f), lambda f$ continues en $a$
+  - $f+g$ et $f g$ continues en $a$ et si $g(a) != 0$, $f/g$ aussi
+  - $h compose g$ continue en a
+
+]
+
+#théorème(title: "TVI")[
+  L'image d'un intervalle par une fonction continue est un intervalle.
+
+  Ce théorème fonctionne à l'infini et aux limites.
+]
+
+#théorème(title: "Théorème des bornes atteintes")[\
+  Toute fonction continue sur un segment est bornée et atteint ses bornes.
+]
+
+#théorème(title: "Théorème de la bijection strictement monotone")[\
+  Avec $I$ un intervalle, $f: I->RR$ et $J=f(I)$, si deux quelconques des trois propriétés suivantes sont vraies, la troisième l’est également :
+  + $f$ est strictement monotone sur $I$
+  + $f$ est continue sur $I$
+  + $J$ est un intervalle et $f$ réalise une bijection de $I$ sur $J$
+
+  De plus, lorsque ces conditions sont vérifiées, l’application réciproque $f^(−1) : J ->I$ est aussi une bijection continue strictement monotone.
+
+]
+#pagebreak(weak: true)
+
+= Polynômes
+#proposition(title: "Écriture du produit")[
+  $ "Avec" P = sum_(k=0)^(+oo)a_k X^k "et" Q = sum_(k=0)^(+oo)b_k X^k ":" $
+  $ P+Q = sum_(k=0)^(+oo)(a_k + b_k) X^k = sum_(k=0)^(+oo)s_k X^k "avec" s_k = a_k + b_k $
+  $ P Q = sum_(i,j in NN) a_i b_j X^(i+j) = sum_(k=0)^(+oo)p_k X^k "avec" p_k = sum_(i=0)^k a_k b_(k-i) $
+]
+#proposition(title: "Degré")[Avec $P,Q in KK[X]$:
+  - $deg P+Q <= max(deg P, deg Q)$
+  - $deg P+Q = deg P + deg Q$
+  - $deg P compose Q = deg P times deg Q$ si $Q$ n'est pas constant, $0$ ou $-oo$ sinon.
+
+  De plus, $P$ a au plus $deg P$ racines distinctes.
+]
+#proposition[\
+  - Si $P in KK_n [X]$ s'annule $n+1$ fois, alors $P=0$
+  - $P,Q in KK_n [X]$ coïncident sur $n+1$ points, alors $P=Q$
+]
+
+#proposition(title: "Relations coefficients racines")[
+  $ "Pour" P = sum_(k=0)^n a_k X^k =lambda product_(k=1)^n (X-alpha_k), "on a" P = lambda (X^n + sum_(k=1)^n (-1)^k sigma_k X^(n-k)) $
+  $ "Avec" sigma_k = sum_(1<=i_1<=...<=i_k<=n) alpha_i_1 times ... times alpha_i_k = (-1)^k times frac(a_(n-k), a_k) $
+
+  Les $(sigma_k)_(k in [|1,n|])$ sont les _fonctions symétriques élémentaires_ des racines de $P$.
+
+  _Exemple:_ Pour $n = 5$, $sigma_3 = alpha_1 alpha_2 alpha_3 + alpha_2 alpha_3 alpha_4 + alpha_3 alpha_4 alpha_5 = - frac(a_2,a_5)$
+]
+
+#proposition[Une racine d'ordre $r in NN^*$ de $P$, est une racine d'ordre $r-1$ de $P'$
+]
+
+#proposition(title: "Décomposition en polynômes irreductibles")[\
+  #underline[_Théorème fondamental de l'algèbre (d'Alembert-Gauss):_]\ Tout polynôme non constant à coefficients dans $CC$ admet au moins une racine dans $CC$.
+
+  On en déduit que:
+  - Les polynômes irreductibles de $CC$ sont de degré $1$, et que tout polynôme non constant dans est scindé dans $CC[X]$.
+
+  - Les polynômes de $RR[X]$, si $z in CC$ en est racine alors $dash(z)$ aussi.
+
+  - On déduit du point précédent que les polynômes irreductibles de $RR$ sont ceux de degré $1$, et ceux de degré $2$ à racines non réeles.
+
+  Ainsi, pour $P in CC_n [X]$ de coefficient dominant $c$ et de racines $z_1,...,z_n$: $ P = c product_(k=1)^n (X-z_k) $
+
+  Et, pour $P in RR_n [X]$ de coefficient dominant $c$ et de racines réelle $a_1,...,a_r$ et complexes $z_1,...,z_m,, dash(z_1),...,.dash(z_m)$ tq. $r+2m=n$: $ P = c product_(k=1)^r (X-z_k) product_(k=1)^r (X-z_k) (X- dash(z_k)) = P = c product_(k=1)^r (X-z_k) product_(k=1)^r (X^2 - 2"Re"(z_k) + abs(z_k)^2) $
+
+  _Note:_ Ainsi, tout polynôme à coefficients réels de degré impair a au moins une racine réelle.
+]
+
+#proposition(title: "Formule d’interpolation de Lagrange.")[\
+  On cherche un polynôme passant par tout les points ${(x_k, y_k) "couples de" KK^2 bar k in [|0;n|]}$.\
+  On supposera $forall i,j in [|0;n|], x_i=x_j => y_i=y_j$, sinon le problème est insolvable.
+
+  L'ensemble des solutions est alors ${ P times D + P_0 bar P in KK[X] }$ avec:
+  $ D = product_(k=0)^n (X-x_k) = 0 "si" X in.not (x_k)_(k in [|0;n|]) $
+  $ P_0 = sum_(i=0)^n y_i L_i "une solution particulière" $
+  $ L_i = frac(1,alpha_i) product_(j in [|0;n|]\\{i}) (X-x_j) = delta_(i,j) $
+  $ alpha_i = product_(j in [|0;n|]\\{i}) (x_i - x_j) $
+
+  $ "Ainsi," P_0 = sum_(i=0)^n (y_i times product_(j in [|0;n|]\\{interleave}) frac((X-x_j),(x_i - x_j)) ) $
+]
+
+#proposition(title: "Formule de Leibniz")[
+  $ (P Q)^((n)) = sum_(k=0)^n binom(n,k) P^((k)) Q^((n-k)) $
+]
+
+#proposition(title: "Formule de Taylor")[
+  $ P = sum_(k=0)^(deg P) frac(P^((k)) (a),k!) (X-a)^k $
+]
+
+#pagebreak(weak:true)
+= Dérivabilité
+== Généralitées
+
+#proposition[ $D^(n+1) subset C^n$]
+
+#proposition[
+  La tangente à $cal(C)_f$ en $a$ est la droite d'équation $y = f(a) + f'(a)(x-a)$
+]
+
+#proposition(title: "Caractérisations")[
+  $f'(a) = l$ est équivalent à :
+  - _Carathéodory:_ $exists phi_(f,a) : I -> RR, phi_(f,a) = l$ tq. $forall x in I, f(x) = f(a) + (x-a) phi_(f,a) (x)$
+  - _Hilbert:_ $exists epsilon : I -> RR, epsilon -->_a 0$ tq. $forall x in I, f(x) = f(a) + (x-a) dot l + (x-a)epsilon(x)$
+
+Note: $epsilon(x) = o(x-a)$ (chap. XX)
+]
+
+#proposition(title: "Formule de Leibniz")[
+  $ (f g)^((n)) = sum_(k=0)^n binom(n,k) f^((k)) g^((n-k)) $
+]
+
+== Théorèmes
+#théorème[
+  Si $f$ possède un extremum local en $a in circle(I) $ et y est dérivable, alors $f′(a) = 0$.
+]
+
+#théorème(title: "Égalité - ou Théorème - des accroissement finis - TAF")[\
+  Soient $(a,b) in I^2$ avec $a<b$ et $f in C^0([[a,b],RR]) inter D(]a,b[, RR)$.
+  Alors il existe $c in ]a,b[$ tq. :
+  $ f'(c) = frac(f(b) - f(a), b-a) $
+
+  _Note (Théorème de Rolle):_ si $f(a) = f(b)$ on a $f'(c) = 0$.
+]
+
+#théorème(title: "Inégalité des accroissement finis - IAF")[\
+  Soient $(a,b) in I^2$ avec $a<b$ et $f in C^0([[a,b],RR]) inter D(]a,b[, RR)$.
+
+  - Si $f'$ est majorée par $M$ alors
+    $f(b) - f(a) <= M(b-a)$
+  - Si $f'$ est minorée par $m$ alors
+    $m(b-a) <= f(b) - f(a)$
+  - Si $abs(f')$ est majorée par $K>0$ alors $abs(f(b) - f(a)) <= K abs(b-a)$ et $f$ est _$K$-lipschitzienne_.
+
+  _Notes:_
+  - Toute fonction lipschitzienne est continue.
+  - Si $f in C([a,b], RR)$, alors $f$ est lipschitzienne sur $[a, b]$.
+
+
+]
+== Convexité
+#proposition(title: "Définition")[
+  Pour $f: I -> RR$:
+  - $f$ est convexe signifie $forall x,y in I, forall lambda in [0,1] f(lambda x + (1-lambda) y) <= lambda f(x) +  (1-lambda) f(y)$
+  - $f$ est concave signifie $forall x,y in I, forall lambda in [0,1] f(lambda x + (1-lambda) y) >= lambda f(x) +  (1-lambda) f(y)$
+]
+
+#proposition(title: "Inégalité de Jensen")[\
+  Pour $f: I -> RR$ convexe, $x_1, dots, x_n in I$ et $lambda_1, dots, lambda_n >= 0$ tq. $lambda_1 + dots + lambda_n = 1$ :
+  $ f(lambda_1 x_1 + dots + lambda_n x_n) <=  lambda_1 f(x_1) + dots + lambda_n f(x_n)$
+]
+
+#théorème[
+  $f: I-> RR$ est convexe ssi $forall a in I$, $x in I\\{a}|-> frac(f(x) - f(a), x-a)$ est croissante.
+
+  _Note (Théorème des trois pentes):_ Vrai ssi $forall a<b<c in I$, $frac(f(a) - f(b), a-b) <= frac(f(a) - f(c), a-c) <= frac(f(b) - f(b), b-c)$
+]
+
+#théorème[
+  Pour $f: I -> RR$ convexe:
+  - $forall a in circle(I), f$ est dérivable à gauche et àa droite et $f'_g (a)<=f'_d (a)$
+  - $f$ est continue sur $circle(I)$
+]
+
+#pagebreak(weak: true)
+= Fractions rationelles
+== Théorie
+
+#théorème(title: "Décomposition en élémnts simples d'une fraction rationelle dans " + $KK$)[\
+Soit $R in KK(X)$.
+  - $R$ s'écrit sous la forme $frac(P,Q)$ avec $Q$ unitaire.
+  - $Q$ s'écrit sous la forme $H_1^(n_1) times dots times H_p^(n_p)$ où
+    - les $H_, dots, H_p$ sont des polynômes irreductibles unitaires.
+    - les $n_1, dots, n_p in NN^*$
+
+  Alors $R$ se décompose sous la forme $E + F_1 + dots + F_p$ avec
+  - $E in KK[X]$ la partie entière de $R$.
+  - $forall k in [|1;p|], F_k$ s'écrit comme $sum_(j=1)^(n_k) frac(J_(k,j),H_k^j)$ avec
+    - $forall j in [|1;n_k|] deg J_(k,j) < deg H_k$.
+]
+
+#théorème(title: "Décomposition en élémnts simples d'une fraction rationelle dans " + $CC$)[\
+  Soit $R in CC(X)$
+  - de pôles $lambda_1, dots, lambda_n$.
+  - de multiplicitées respectives $m_1, dots, m_n$.
+
+  Alors il existe une unique famille $(a_(k,j))_(k in [|1;n|], j in [|1;m_k|])$ soit $a_(1,1), dots, a_(1,m_1), dots, a_(n,1), dots, a_(n,m_n)$ tq.:
+  $ R = E + sum_(k=1)^n sum_(j=1)^(m_k) frac(a_(k,j),(X - lambda_k)^j) $
+  où $E$ est la partie entière de $R$.
+]
+
+#théorème(title: "Décomposition en élémnts simples d'une fraction rationelle dans " + $RR$)[\
+  Soit $R = frac(P,Q) in RR(X)$
+  - avec $Q$ unitaire
+  - où $Q$ s'écrit $product_(i=1)^q (X-lambda_i)^(m_i) times product_(i=1)^p H_i^(n_i)$ où
+    - les $lambda_1, dots, lambda_q$ sont les racines deux à deux distinctes de $Q$.
+    - les $H_, dots, H_p$ sont des polynômes de degré 2 sans racine réelle.
+
+  Alors $R$ se décompose de façon unique sous la forme:
+  $ R = E + sum_(k=1)^q sum_(j=1)^(m_k) frac(a_(k,j),(X - lambda_k)^j)  + sum_(k=1)^p sum_(j=1)^(n_k) frac(b_(k,j)X + c_(k,j),H_k^j) $
+  où $E$ est la partie entière de $R$.
+]
+
+== Méthodes de calcul
+Ces méthodes s'appliquent à une fraction $R$ tq. $deg R < 0$. Il conviendra de retirer la partie entière par division euclidienne.
+
+=== Diverses simplifications
+
+#proposition(title: "Par symétrie, parité et imparité ")[
+  $ "Exemple de" R=frac(1,(X-1)^2 (X+1)^2) $
+  + On a qu'il existe $a,b,c,d in RR$ tels que: $ R = frac(a,X-1) + frac(b,(X-1)^2) + frac(c,X+1) + frac(d,(X+1)^2) $
+  + On a aussi que: $ R(-X) = -frac(a,X+1) + frac(b,(X+1)^2) + -frac(c,X-1) + frac(d,(X-1)^2) $
+
+  Ainsi $a=-c$ et $b=d$ !
+]
+
+#proposition(title: "Par conjugaison")[
+  $ "Exemple de" R=frac(1,X^2+1) in R(X) $
+  + On a qu'il existe $a,b in CC$ tels que: $ R = frac(a,X-i) + frac(b,X+i) $
+  + On a aussi que $ dash(R) = frac(dash(a),X-dash(i)) + frac(dash(b),X+dash(i)) = frac(dash(a),X+i) + frac(dash(b),X-i) $
+
+  Or, $R = dash(R)$ car $R in R(X)$, donc $dash(b) = a$ !
+]
+
+=== Détermination des coefficients
+#proposition(title: "Méthode de base")[\ Cette méthode consiste à multiplier l'équation par le dénominateur du coefficient à déterminer, puis à l'évaluer en son pôle, et enfin à retrancher la fraction avec le coefficient déterminé et à réitérer.
+  $ "Exemple de" R=frac(3X+2,(X-1)^2) in R(X) $
+  $ "On a qu'il existe" a,b in RR "tels que:" R = frac(a,X-1) + frac(b,(X-1)^2) $
+  + Alors $R(X-1)^2 = a(X-1) + b$ donc $3X+2 = a(X-1) + b$.\
+    En évaluant en 1, on obtient *$b=5$*
+
+  + Ensuite, on décompose $ (R - frac(b,(X-1)^2) = frac(3X-3,(X-1)^2) = 3frac(X-1,(X-1)^2) = frac(3,X-1)) = frac(a,X-1) $
+    Immédiatement, *$a=3$*.
+]
+
+#remarque(title: "Cas d'un pôle simple")[
+  $ "Exemple de" R = frac(3X+2,X^2 - 1) = frac(A,B) $
+  $ "On a qu'il existe" a,b in RR "tels que:" R = frac(a,X-1) + frac(b,X+1) $
+  $ "Alors" a = frac(A(1),B'(1)) = frac(3,2 times 1) = 3/2 "et" b = frac(A(-1),B'(-1)) = frac(3,2 times (-1)) = - 3/2 $
+]
+
+#proposition(title: "Résidus")[\
+  Cette méthode consiste à comparer les limites quand $ x--> +oo$ de $x R(x)$ sous sa forme décomposée et mono-fractionnaire.
+  $ "Exemple de" R = frac(3,(X+1)(X-1)^2) $
+  $ "On a qu'il existe" a,b,c in RR "tels que:" R = frac(a,X-1) + frac(b,(X-1)^2) + frac(c,X+1) $
+  + Par la méthode de base, on a $c=frac(3,(-1-1)^2)=3/4$ et $b=frac(3,1+1)=3/2$
+  + $deg R = -2$ donc $x R(x) --> 0$.
+  + De l'autre côté, on a :$ a frac(x,x-1) + b frac(x,(x+1)^2) + c frac(x,x+1) --> a+c $
+
+  Ainsi, $a=-c=-3/4$.
+]
+
+#proposition(title: "Évaluation hors des pôles")[
+  Il est intéréssant de noter qu'avec $n$ coefficient à determiner, il suffirait d'évaluer en $n$ points pour avoir un systèmes $n$-inconnues/$n$-équations.
+
+  Utile principalement quand il reste peu de coefficients à déterminier.
+]
+
+#proposition(title: "Identification")[
+  En dernier recours, par exemple pour $frac(1,X(X+1)) = frac(a,X) + frac(b,X*+1)$, $frac(a,X) + frac(b,X*+1) = frac((a+b)X+a,X(X+1))$ donc $a+b=0$ et $a=1$ donc $(a,b) = (1,-1)$.
+]
+
+#proposition(title: "Développements limités")[
+  Exemple pour un pôle double.
+  $ R = frac(a,X-lambda) + frac(b,(X-lambda)^2) + G "avec" G "n'ayant pas" lambda "comme pôle." $
+
+  Alors pour h au voisinage de 0, $h^2 R(lambda + h) = b + a h + h^2 G(lambda + h)$.\
+  Or $G(lambda + h)$ est borné, donc $h^2 G(lambda + h) = o(h)$.\
+  Alors par unicité des DL, il suffit de calculer un DL de $h^2 R(lambda + h)$.
+
+   $ "Exemple pour la partie polaire de " R=frac(3X-1,(X-1)^2 (X^2+1)) "associée à 1." $
+   Pour $h$ au voisinage de 0, on a:\
+  $ h^2 R(1+h) = (3h+2)/(2+2h+h^2) = 1/2 (3h+2)/(1+h+1/2 h^2) = 1/2 (3h+2) (1-h+o(h)) = 1 + 1/2 h + o(h) $
+   $ "La partie polaire recherchée est alors " 1/(2(X-1)) + 1/(X-1)^2 $
+]
+
+== Décomposition de $P'/P$
+#proposition(title: "Dans " + $KK$)[
+  $ "Pour" P = lambda product_(k=1)^n H_k^(p_k) in KK[X] $
+  - $lambda in KK$ et $p_1, dots, p_n in NN^*$
+  - $H_1, dots, H_n$ des polynômes irreductibles deux à deux distincts
+
+  $ P'/P = sum_(k=1)^n H'_k/H_k p_k $
+]
+
+#proposition(title: "Dans " + $CC$)[
+  Pour $P in CC[X]$
+  - à $n$ racines distinctes $a_1, dots, a_n$
+  - de multiplicitées respectives $r_1, dots, r_n$
+
+  $ P'/P = sum_(k=1)^n r_k/(X-a_k) $
+]
+
+#pagebreak(weak: true)
+= Espaces vectoriels
+== Définitions et caractérisations
+#proposition(title: "Espace vectoriels")[\
+  On appelle $(E,+,dot)$ un _$KK$-ev_ avec
+  - $+$ une lci
+  - $dot : KK times E -> E$
+  - $E$ un ensmble fini
+  tel que $forall lambda,mu in KK$ appelés _scalaires_,  $forall x,y in E$ appelés _vecteurs_:
+  + $(E,+)$ est un groupe commutatif (de neutre $0_E$)
+  + $1_KK dot x = x$
+  + $(lambda + mu) dot x = lambda dot x + mu dot x$
+  + $lambda dot (x+y) = lambda dot x + lambda dot y$
+  + $(lambda times mu) dot x = lambda dot (mu dot x)$
+]
+
+#proposition[
+  Soit $F subset E$, avec $E$ un _$KK$-ev_, $F$ est un _sev_ de $E$ si:
+  + F est non vide
+  + F stable par combinaison linéaire $(forall x,y in F, lambda in KK, lambda x + y in F)$
+]
+
+#proposition[
+  - $lambda dot_E x = 0_E <=> x = 0_E "ou" lambda = 0_KK$
+  - $-x = (-1) dot x$
+]
+
+#proposition[
+  Dans le contexte $E$ un _$KK$-ev_, et $X subset E$, on note $"Vect"(X)$ le plus petit _sev_ de $E$ contenant $X$.
+
+  _*Théorème:*_ C'est l'ensemble des combianaisons linéaires de $X$.
+]
+
+== Propositions utiles
+
+#proposition[
+  Pour $(E,+_0,dot_0)$ un _$KK$-ev_ et $X != emptyset$, $(E^X,+,dot)$ est un _$KK$-ev_ avec le $(+)$ et le $(dot)$ usuels sur les applications.
+]
+
+#théorème[
+  - L'intersection d'sev est un sev.
+  - L'union d'sev est un sev ssi l'un des sev contient tout les autres.
+]
+
+#proposition[
+  - $X subset Y => "Vect"(X) subset "Vect"(Y)$
+  - $"Vect"("Vect"(X)) = "Vect"(X)$
+]
+
+== Considérations sur la somme
+Avec $F$ et $G$ des _sev_ de $E$, et $X,Y subset E$
+
+#théorème[
+  - $F + G = "Vect"(F union G)$
+  - $"Vect"(X) + "Vect"(Y) = "Vect"(X union Y)$
+]
+
+#proposition[
+  $F + G = F plus.circle G$ (La somme est directe) équivaut à
+  + $forall x in F+G, exists ! (f,g) in F times G, x = f + g$
+  + $forall (f,g) in F times G, f+g=0_E => f=g=0_E$
+  + $F inter G = {0_e}$
+
+  De plus, si $F plus.circle G = E$, $F$ et $G$ sont supplémentaires.
+]
+
+== Sous-espaces affines
+
+#proposition[Pour $E$ un _ev_, $F$ un _sev_ de $E$, et $u in E$
+  $ cal(F) = u + E $
+  est un sous espace affine de $E$ de direction $F$.
+
+  On notera alors que $forall a in cal(F), forall b in E$:
+  - $F = {x-y bar x,y in cal(F)}$
+  - $cal(F) <=> b-a in F$
+  - $cal(F) = a + F$
+
+]
+
+#théorème[\
+  On dit $cal(F)$ parallèle à $cal(G)$ si $F subset G$.\
+  Donc si $F inter G != emptyset$, $cal(F)$ et $cal(G)$ sont _concourants_ ou _séctants_.
+
+  Ainsi, $cal(F)$ est parallèle à $cal(G)$ ssi $cal(F) subset cal(G)$ ou $cal(F) inter cal(G) = emptyset$.
+]
+
+
+
+#pagebreak(weak: true)
+= Analyse asymptotique
+== Notation $o$/$O$
+#proposition(title: "Définition")[\
+  _Suites:_
+  - $u_n = O(v_n) <=> u/v "bornée"$
+
+  - $u_n = o(v_n) <=> u/v -->_(+oo) 0$
+
+  _Fonctions:_
+  - $f=_a O(g) <=> f/g "est bornée au voisinage de" a$
+
+  - $f=_a o(g) <=> f/g -->_a 0$
+]
+
+#proposition(title: "Opérations interdites")[
+  + Somme des deux côtés: $f + h =_a o(g + k$)
+  + Composition à gauche: $psi compose f =_(psi(a))o(psi compose g)$
+]
+
+== Notation équivalent
+#proposition(title: "Définition")[\
+  _Suites:_
+  - $u_n tilde v_n <=> u/v -->_(+oo) 1$
+
+  _Fonctions:_
+  - $f tilde_a g <=> f/g -->_a 1$
+    - $<=> f - g =_a o(g)$
+    - $<=> f - g =_a o(f)$
+]
+
+#proposition(title: "Opérations interdites")[
+  + Somme des deux côtés: $f + h tilde_a o(g + k$)
+  + Composition à gauche: $psi compose f tilde_(psi(a))o(psi compose g)$
+]
+
+==  Développements limités
+=== Théorie
+#proposition(title: "DLs à connaitre")[Pour $x$ au voisinage de 0:
+  $ e^x = 1 + x + x^2/2! + dots + x^n/n! + o(x^n) $
+On en déduit sh et ch les parties respectivements impaires et paires de $e^x$,\ et $sin x = (-1)^k times k"-ième"$ terme de sh comme $cos x = (-1)^k times k"-ième"$ de ch. Pour les tangentes, on fait le quotient et se ramène à $1/(1 plus.minus x)$.
+
+$ (1+x)^a = 1 + a x + (a(a-1))/2! x^2 + dots + (a(a-1)(a-2) dots (a-(n-1)))/n! x^n + o(x^n) $
+On en déduit directement $sqrt(1 plus.minus x)$ et $1/(1 plus.minus x)$, ainsi que $ln(1 plus.minus x)$ en intégrant le deuxième.
+De plus, on déduit $arcsin$, $arccos$ et $arctan$ en intégrant respectivement $1/sqrt(1-x^2)$, $(-1)/sqrt(1-x^2)$ et $1/(1+x^2)$.
+]
+#proposition(title: "Opérations licites")[Pour deux DL d'ordres $n,m$.
+  - Somme (*!!*)
+  - Produit
+  - Quotient
+  - Composition
+
+On ne gardera que les termes d'ordre adapté.
+]
+#théorème[
+  La partie principale d'un DL$(x_0,n)$ est unique.
+]
+#proposition[
+  Si f est paire (resp. impaire) et admet un DL$(0, n)$, alors la partie principale de ce DL est un polynôme pair (resp. impair).
+]
+#théorème[
+  Si $f'$ admet un DL$(x_0,n)$ alors $f$ en admet un DL$(x_0,n+1)$ dont la
+  - partie principale est la primitive du premier
+  - le terme constant vaut $f(x_0)$ en $x_0$
+
+  On en déduit la formule de Taylor-Young:
+  $ f(x) =_(x->x_0) sum_(k=0)^n (f^((k))(x_0))/k! (x-x_0)^k + o((x-x_0)^k) $
+]
+=== Cas utiles
+#proposition[
+  $ n! tilde sqrt(2n pi)(n/e)^n $
+  $ ln(n!) =_(n-->+oo) n ln(n) - n + 1/2 ln (2pi) + o(1) $
+]
+#théorème[
+  $ forall alpha in RR (sum^N_(n=1) 1/n^alpha)_(N in NN) "converge ssi" alpha>1 $
+]
